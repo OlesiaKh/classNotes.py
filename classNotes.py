@@ -12,9 +12,10 @@ class Notes:
         return notes
 
     def search_notes_by_tag(self, tag):
+        tag_lower = tag.lower()  
         with open(self.file_name, 'r') as file:
             lines = file.readlines()
-            matching_notes = [line for line in lines if tag in line]
+            matching_notes = [line for line in lines if tag_lower in line.lower()]  
         return ''.join(matching_notes)
 
 # Inside  main bot's functionality
